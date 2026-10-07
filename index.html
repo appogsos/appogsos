@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Payment Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Loan Payment Calculator</h1>
+    <form id="loan-form" novalidate>
+      <label for="principal">Loan principal ($)</label>
+      <input id="principal" name="principal" type="number" min="0.01" step="0.01" required>
+
+      <label for="annual-rate">Annual interest rate (%)</label>
+      <input id="annual-rate" name="annual-rate" type="number" min="0" step="any" required>
+
+      <label for="months">Loan term in months</label>
+      <input id="months" name="months" type="number" min="1" step="1" required>
+
+      <button type="submit">Calculate</button>
+    </form>
+    <p id="error" role="alert" hidden></p>
+    <p id="announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+    <section id="results" hidden>
+      <h2>Estimated repayment</h2>
+      <dl>
+        <div><dt>Monthly payment</dt><dd id="monthly-payment"></dd></div>
+        <div><dt>Total repayment</dt><dd id="total-repayment"></dd></div>
+      </dl>
+    </section>
+    <p class="note">Assumes a fixed interest rate, equal monthly payments, and no extra fees. Amounts are in US dollars. Actual lender payments may vary due to rounding.</p>
+  </main>
+</body>
+</html>
